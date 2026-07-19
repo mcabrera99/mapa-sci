@@ -1,0 +1,22 @@
+html, body,#mapa{
+    height: 100%;
+    width: 100%;
+}
+
+#contenedor{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#panel_izq{
+    height: 100%;
+    width: 20%;
+    border: 1px solid black
+}
+
+.simbolo{
+    height: 30px;
+    border: 1px solid black;
+}

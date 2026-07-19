@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa SCI</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <div id="contenedor">
+        <div id="panel_izq">
+            <div id="panel_simbolos">
+                <div class="triplete_simbolos">
+                    <div>
+                        <p>Puesto de comando</p>
+                        <img id="sci_pc" class="simbolo" src="icons/sci_pc.png">
+                    </div>
+                    <div>
+                        <p>Área de espera</p>
+                        <img id="sci_e" class="simbolo" src="icons/sci_e.png">
+                    </div>
+                </div>
+                <div class="triplete">
+                </div>
+                <div class="triplete">
+                </div>
+            </div>
+            <div id="mapas_base">
+            </div>
+        </div>
+        <div id="mapa">
+        </div>
+    </div>
+    <script src="src/map.js"></script>
+</body>
+
+</html>
