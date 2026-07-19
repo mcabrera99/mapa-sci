@@ -20,3 +20,7 @@ html, body,#mapa{
     height: 30px;
     border: 1px solid black;
 }
+
+img{
+    height: 25px;
+}
