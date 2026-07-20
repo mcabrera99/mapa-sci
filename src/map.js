@@ -1,4 +1,4 @@
-import {descargarGroupLayer} from "./ui.js"
+import {asignarBotonSimbolo,descargarGroupLayer} from "./ui.js"
 let map = L.map("mapa").setView([-39, -64], 4);
 
 let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -15,23 +15,7 @@ let baseLayers = {
 
 let puntos_sci = L.featureGroup()
 
-function asignarBotonSimbolo(id_html) {
-    document.getElementById(id_html).addEventListener("click", ev => {
-        let iconSize = [30, 30];
-        if (id_html == "sci_pc") {   // sci_pc.png tiene una forma particular.
-            iconSize = [45, 30]
-        };
-        let icon = L.icon({
-            iconUrl: `icons/${id_html}.png`,
-            iconSize: iconSize
-        });
-        let punto = L.marker([-39, -64], {
-            icon: icon
-        }).bindPopup("Puesto de comando").addTo(puntos_sci).addTo(map);
-        // verCapas(puntos_sci)
-        descargarPunto(punto)
-    })
-}
+
 
 let btn_descargar = document.getElementById("btn_descargar").addEventListener("click",function(ev){
     descargarGroupLayer(puntos_sci);
@@ -46,8 +30,8 @@ function verCapas(mapa) {
 
 
 
-asignarBotonSimbolo("sci_pc");
-asignarBotonSimbolo("sci_e");
+asignarBotonSimbolo(map,"sci_pc",puntos_sci);
+asignarBotonSimbolo(map,"sci_e",puntos_sci);
 
 L.control.scale({ maxWidth: 200 }).addTo(map)
 L.control.layers(baseLayers).addTo(map)
