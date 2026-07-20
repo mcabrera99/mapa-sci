@@ -1,3 +1,4 @@
+import {descargarGroupLayer} from "./ui.js"
 let map = L.map("mapa").setView([-39, -64], 4);
 
 let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -43,16 +44,7 @@ function verCapas(mapa) {
     })
 }
 
-function descargarGroupLayer(groupLayer){
-    let geojson = groupLayer.toGeoJSON();
-    let blob = new Blob([JSON.stringify(geojson)],{type:"application/json"})
-    let url = URL.createObjectURL(blob);
-    let a = document.createElement("a");
-    a.href=url
-    a.download = "DESCARGAR";
-    a.click()
-    console.log("Descargando...")
-}
+
 
 asignarBotonSimbolo("sci_pc");
 asignarBotonSimbolo("sci_e");
