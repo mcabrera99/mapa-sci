@@ -34,20 +34,13 @@ function dibujarPunto(map, icon, groupLayer) {
         let punto = L.marker(coords, {
             icon: icon,
             draggable:true
-        }).bindTooltip("Puesto de comando").addTo(groupLayer).addTo(map)
-        hacerPuntoSeleccionable(punto)
+        }).addTo(groupLayer).addTo(map)
         map.off("mousemove")
         map.off("click")
     })
 
 }
-function hacerPuntoSeleccionable(punto){
-    punto.on("move",ev=>{
-        let coords = ev.latlng
-        punto.setLatLng = coords
-console.log("drag iniciado")
-    })
-}
+
 
 function asignarBotonSimbolo(map, id_html_element, groupLayer) {
     document.getElementById(id_html_element).addEventListener("click", ev => {
