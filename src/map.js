@@ -22,26 +22,24 @@ let baseLayers = {
     "Argenmap": argenmap
 }
 
-let puntos_sci = L.featureGroup()
+let puntos_sci_pc = L.featureGroup()
+let puntos_sci_e = L.featureGroup()
 let puntos_peligros = L.featureGroup()
-let overlays = {
-    "SCI": puntos_sci,
-    "Peligros": puntos_peligros
-}
 
 
 
 
-let btn_descargar_sci = document.getElementById("btn_descargar_sci").addEventListener("click",function(ev){
-    descargarGroupLayer(puntos_sci);
+
+let btn_descargar_sci_pc = document.getElementById("btn_descargar_sci_pc").addEventListener("click",function(ev){
+    descargarGroupLayer(puntos_sci_pc);
 })
-let btn_descargar_peligros = document.getElementById("btn_descargar_peligros").addEventListener("click",function(ev){
+let btn_descargar_pel_biol = document.getElementById("btn_descargar_pel_biol").addEventListener("click",function(ev){
     descargarGroupLayer(puntos_peligros);
 })
 
 
-asignarBotonSimbolo(map,"sci_pc",puntos_sci);
-asignarBotonSimbolo(map,"sci_e",puntos_sci);
+asignarBotonSimbolo(map,"sci_pc",puntos_sci_pc);
+asignarBotonSimbolo(map,"sci_e",puntos_sci_e);
 asignarBotonSimbolo(map,"peligro_biol",puntos_peligros);
 
 L.control.scale({ maxWidth: 200 }).addTo(map)

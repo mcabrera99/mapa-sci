@@ -31,7 +31,9 @@ height: 40px;
     align-items: center;
     background-color: lightgray;
     width: 90%;
-    border: 1px solid black
+    border: 1px solid black;
+    justify-content: space-between;
+    
 }
 
 .simbolo{
@@ -40,7 +42,6 @@ height: 40px;
 }
 
 img{
-    margin-left: 5px;
-    margin-right: 5px;
-    height: 25px;
+    height: 20px;
 }
+
