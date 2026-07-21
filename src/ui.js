@@ -41,7 +41,6 @@ function dibujarPunto(map, icon, groupLayer) {
 
 }
 
-
 function asignarBotonSimbolo(map, id_html_element, groupLayer) {
     document.getElementById(id_html_element).addEventListener("click", ev => {
         let icon = crearIcon(id_html_element)

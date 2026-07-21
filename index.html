@@ -13,27 +13,36 @@
 <body>
     <div id="contenedor">
         <div id="panel_izq">
+            <div id="panel_config">
+
+            </div>
             <div id="panel_simbolos">
-                <div class="triplete_simbolos">
-                    <div>
-                        <p>Puesto de comando</p>
-                        <img id="sci_pc" class="simbolo" src="icons/sci_pc.png">
-                    </div>
-                    <div>
-                        <p>Área de espera</p>
-                        <img id="sci_e" class="simbolo" src="icons/sci_e.png">
-                    </div>
+                <div class="contenedor_simbolo" id="sci_pc">
+                    <img  class="simbolo" src="icons/sci_pc.png">
+                    <p>Puesto de comando</p>
+                    <button class="btn_descargar" id="btn_descargar_sci_pc"></button>
                 </div>
-                <div class="triplete">
+                <div class="contenedor_simbolo" id="sci_e">
+                    <img  class="simbolo" src="icons/sci_e.png">
+                    <p>Área de espera</p>
+                    <button class="btn_descargar" id="btn_descargar_sci_e"></button>
                 </div>
-                <div class="triplete">
+                <div class="contenedor_simbolo" id="peligro_biol">
+                    <img  class="simbolo" src="icons/peligro_biol.png">
+                    <p>Peligro biológico</p>
+                    <button class="btn_descargar" id="btn_descargar_pel_biol"></button>
                 </div>
+
             </div>
             <div id="mapas_base">
             </div>
             <div id="panel_descargas">
-                <p>Descargar</p>
-                <button id="btn_descargar">
+                <p>Descargar SCI</p>
+                <button id="btn_descargar_sci">
+                    <img src="icons/descargar.png">
+                </button>
+                <p>Descargar peligros</p>
+                <button id="btn_descargar_peligros">
                     <img src="icons/descargar.png">
                 </button>
             </div>

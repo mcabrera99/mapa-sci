@@ -10,9 +10,27 @@ html, body,#mapa{
     flex-direction: row;
 }
 
+#panel_config{
+height: 40px;
+    border: 1px solid black
+}
+
 #panel_izq{
     height: 100%;
-    width: 20%;
+    width: 30%;
+    border: 1px solid black
+}
+
+.contenedor_simbolo{
+    margin-left: 5%;
+    margin-top:10px;
+    height: fit-content;
+    padding: 0%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: lightgray;
+    width: 90%;
     border: 1px solid black
 }
 
@@ -22,5 +40,7 @@ html, body,#mapa{
 }
 
 img{
+    margin-left: 5px;
+    margin-right: 5px;
     height: 25px;
 }
