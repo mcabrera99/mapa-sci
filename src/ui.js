@@ -30,11 +30,13 @@ function dibujarPunto(map, icon, groupLayer) {
 
     map.on("click", ev => {                // Al colocar el punto en el lienza
         editionLayer.clearLayers()
+        let cant_1 = groupLayer.getLayers().length
         let coords = ev.latlng
         let punto = L.marker(coords, {
             icon: icon,
             draggable:true
-        }).addTo(groupLayer).addTo(map)
+        }).addTo(groupLayer)
+        groupLayer.addTo(map)
         map.off("mousemove")
         map.off("click")
     })
@@ -47,5 +49,14 @@ function asignarBotonSimbolo(map, id_html_element, groupLayer) {
         dibujarPunto(map, icon, groupLayer)
     })
 }
+
+function actualizarControlLayer(map){
+    
+    map.eachLayer(function(layer){
+        
+    })
+    let layers = map.layers()
+}
+
 
 export { asignarBotonSimbolo, descargarGroupLayer }
