@@ -1,5 +1,6 @@
 import { map } from "./map.js";
 import {asignarBotonSimbolo,descargarGroupLayer} from "./ui.js"
+import {layers} from "./layers.js"
 
 let estadoDibujo = {
     "dibujando":false,
@@ -50,7 +51,8 @@ let btn_trash_sci_pc = document.getElementById("btn_trash_sci_pc").addEventListe
 
 asignarBotonSimbolo(map,"sci_pc",puntos_sci_pc);
 asignarBotonSimbolo(map,"sci_e",puntos_sci_e);
-asignarBotonSimbolo(map,"peligro_biol",puntos_peligros);
+// asignarBotonSimbolo(map,"riesgo_biol",puntos_peligros);
+
 
 L.control.scale({ maxWidth: 200 }).addTo(map)
 L.control.layers(baseLayers, overlays).addTo(map)

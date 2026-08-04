@@ -1,4 +1,4 @@
-import { SYMBOL_SIZE } from "./config"
+import { SYMBOL_SIZE } from "./config.js"
 
 export const symbols = [
     {
