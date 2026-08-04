@@ -1,12 +1,12 @@
-let map = L.map("mapa").setView([-39, -64], 4);
+import { map } from "./map.js";
+import {asignarBotonSimbolo,descargarGroupLayer} from "./ui.js"
+
 let estadoDibujo = {
     "dibujando":false,
     "simbolo":null,
     "seleccionado":false
 }
-
-import {asignarBotonSimbolo,descargarGroupLayer} from "./ui.js"
-
+console.log("__",map)
 let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
