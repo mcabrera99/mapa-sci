@@ -1,6 +1,6 @@
 import { map } from "./map.js";
-import {asignarBotonSimbolo,descargarGroupLayer} from "./ui.js"
-import {layers} from "./layers.js"
+import {asignarBotonSimbolo,descargarGroupLayer,crearSimbolosCapas} from "./ui.js"
+import {layergroups, baseLayers} from "./layers.js"
 
 let estadoDibujo = {
     "dibujando":false,
@@ -8,32 +8,20 @@ let estadoDibujo = {
     "seleccionado":false
 }
 
-let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-let argenmap = L.tileLayer("https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png", {
-    attribution: 'Instituto Geográfico Nacional'
-}).addTo(map);
-let baseLayers = {
-    "Open Street Map": osm,
-    "Argenmap": argenmap
+// Asignar botón a cada capa
+for (const layergroup of layergroups){
+    // asignarBotonSimbolo(map, layergroup );   
 }
 
-
-
+crearSimbolosCapas(layergroups)
 let controlLayerState=[]
 
 
-let puntos_sci_pc = L.featureGroup()
-let puntos_sci_e = L.featureGroup()
-let puntos_peligros = L.featureGroup()
-
-
-let overlays={
-    "Puesto de comando":puntos_sci_pc,
-    "Área de espera":puntos_sci_e,
-    "Peligro biológico":puntos_peligros
-}
+// let overlays={
+//     "Puesto de comando":puntos_sci_pc,
+//     "Área de espera":puntos_sci_e,
+//     "Peligro biológico":puntos_peligros
+// }
 
 
 let btn_descargar_sci_pc = document.getElementById("btn_descargar_sci_pc").addEventListener("click",function(ev){

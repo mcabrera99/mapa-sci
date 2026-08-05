@@ -1,3 +1,5 @@
+import { layergroups } from "./layers.js"
+
 function descargarGroupLayer(groupLayer) {
     let geojson = groupLayer.toGeoJSON();
     let blob = new Blob([JSON.stringify(geojson)], { type: "application/json" })
@@ -34,7 +36,7 @@ function dibujarPunto(map, icon, groupLayer) {
         let coords = ev.latlng
         let punto = L.marker(coords, {
             icon: icon,
-            draggable:true
+            draggable: true
         }).addTo(groupLayer)
         groupLayer.addTo(map)
         map.off("mousemove")
@@ -50,13 +52,28 @@ function asignarBotonSimbolo(map, id_html_element, groupLayer) {
     })
 }
 
-function actualizarControlLayer(map){
-    
-    map.eachLayer(function(layer){
-        
+function actualizarControlLayer(map) {
+
+    map.eachLayer(function (layer) {
+
     })
     let layers = map.layers()
 }
 
 
-export { asignarBotonSimbolo, descargarGroupLayer }
+function crearSimbolosCapas(layergroups) {
+    for (const layergroup of layergroups) {
+        let plantilla = `<div class="contenedor_simbolo" id="${layergroup.id}">
+                    <img class="simbolo" src="${layergroup.symbol.icon_path}">
+                    <p>${layergroup.symbol.desc}</p>
+                    <button class="btn_trash" id="btn_trash_sci_pc">
+                        <img src="icons/trash.png">
+                    </button>
+                    <button class="btn_descargar" id="btn_descargar_sci_pc">
+                        <img src="icons/descargar.png">
+                    </button>
+                </div>`
+    }
+}
+
+export { asignarBotonSimbolo, descargarGroupLayer, crearSimbolosCapas }
