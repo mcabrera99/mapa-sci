@@ -1,4 +1,29 @@
 import { layergroups } from "./layers.js"
+// RENDERIZADO
+function rend_panel_capas(layergroups) {
+    let html = ""
+    for (const layergroup of layergroups) {
+        let plantilla = `<div class="contenedor_simbolo" id="${layergroup.id}">
+                    <img class="simbolo" src="${layergroup.symbol.icon_path}">
+                    <p>${layergroup.symbol.desc}</p>
+                    <button class="btn_trash" id="btn_trash_sci_pc">
+                        <img src="icons/trash.png">
+                    </button>
+                    <button class="btn_descargar" id="btn_descargar_sci_pc">
+                        <img src="icons/descargar.png">
+                    </button>
+                </div>`
+        html += plantilla
+        console.log(html)
+    document.getElementById("panel_simbolos").innerHTML = html
+    }
+}
+function asignarBotonSimbolo(map, id_html_element, groupLayer) {
+    document.getElementById(id_html_element).addEventListener("click", ev => {
+        let icon = crearIcon(id_html_element)
+        dibujarPunto(map, icon, groupLayer)
+    })
+}
 
 function descargarGroupLayer(groupLayer) {
     let geojson = groupLayer.toGeoJSON();
@@ -21,6 +46,7 @@ function crearIcon(nombre_layer) {
     });
     return icon
 }
+
 function dibujarPunto(map, icon, groupLayer) {
     let editionLayer = L.featureGroup().addTo(map)  // Creo una capa borrador temporal
 
@@ -45,12 +71,7 @@ function dibujarPunto(map, icon, groupLayer) {
 
 }
 
-function asignarBotonSimbolo(map, id_html_element, groupLayer) {
-    document.getElementById(id_html_element).addEventListener("click", ev => {
-        let icon = crearIcon(id_html_element)
-        dibujarPunto(map, icon, groupLayer)
-    })
-}
+
 
 function actualizarControlLayer(map) {
 
@@ -61,19 +82,5 @@ function actualizarControlLayer(map) {
 }
 
 
-function crearSimbolosCapas(layergroups) {
-    for (const layergroup of layergroups) {
-        let plantilla = `<div class="contenedor_simbolo" id="${layergroup.id}">
-                    <img class="simbolo" src="${layergroup.symbol.icon_path}">
-                    <p>${layergroup.symbol.desc}</p>
-                    <button class="btn_trash" id="btn_trash_sci_pc">
-                        <img src="icons/trash.png">
-                    </button>
-                    <button class="btn_descargar" id="btn_descargar_sci_pc">
-                        <img src="icons/descargar.png">
-                    </button>
-                </div>`
-    }
-}
 
-export { asignarBotonSimbolo, descargarGroupLayer, crearSimbolosCapas }
+export { asignarBotonSimbolo, descargarGroupLayer, rend_panel_capas }

@@ -1,5 +1,5 @@
 import { map } from "./map.js";
-import {asignarBotonSimbolo,descargarGroupLayer,crearSimbolosCapas} from "./ui.js"
+import {asignarBotonSimbolo,descargarGroupLayer,rend_panel_capas} from "./ui.js"
 import {layergroups, baseLayers} from "./layers.js"
 
 let estadoDibujo = {
@@ -9,11 +9,14 @@ let estadoDibujo = {
 }
 
 // Asignar botón a cada capa
+const overlays={}
 for (const layergroup of layergroups){
-    // asignarBotonSimbolo(map, layergroup );   
+    // asignarBotonSimbolo(map, layergroup );
+    console.log(layergroup)
+    overlays[layergroup.symbol.desc] = layergroup.layergroup
 }
 
-crearSimbolosCapas(layergroups)
+rend_panel_capas(layergroups)
 let controlLayerState=[]
 
 
@@ -24,22 +27,23 @@ let controlLayerState=[]
 // }
 
 
-let btn_descargar_sci_pc = document.getElementById("btn_descargar_sci_pc").addEventListener("click",function(ev){
-    ev.stopPropagation();
-    descargarGroupLayer(puntos_sci_pc);
-})
-let btn_descargar_pel_biol = document.getElementById("btn_descargar_pel_biol").addEventListener("click",function(ev){
-    ev.stopPropagation();
-    descargarGroupLayer(puntos_peligros);
-})
-let btn_trash_sci_pc = document.getElementById("btn_trash_sci_pc").addEventListener("click",function(ev){
-    ev.stopPropagation();
-    puntos_sci_pc.clearLayers();
-})
+// let btn_descargar_sci_pc = document.getElementById("btn_descargar_sci_pc").addEventListener("click",function(ev){
+//     ev.stopPropagation();
+//     descargarGroupLayer(puntos_sci_pc);
+// })
+// let btn_descargar_pel_biol = document.getElementById("btn_descargar_pel_biol").addEventListener("click",function(ev){
+//     ev.stopPropagation();
+//     descargarGroupLayer(puntos_peligros);
+// })
+// let btn_trash_sci_pc = document.getElementById("btn_trash_sci_pc").addEventListener("click",function(ev){
+//     ev.stopPropagation();
+//     puntos_sci_pc.clearLayers();
+// })
 
-asignarBotonSimbolo(map,"sci_pc",puntos_sci_pc);
-asignarBotonSimbolo(map,"sci_e",puntos_sci_e);
+    // asignarBotonSimbolo(map,"sci_pc",puntos_sci_pc);
+    // asignarBotonSimbolo(map,"sci_e",puntos_sci_e);
 // asignarBotonSimbolo(map,"riesgo_biol",puntos_peligros);
+
 
 
 L.control.scale({ maxWidth: 200 }).addTo(map)
