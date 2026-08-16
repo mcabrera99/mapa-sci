@@ -21,6 +21,6 @@ const argenmap = L.tileLayer("https://wms.ign.gob.ar/geoserver/gwc/service/tms/1
     attribution: 'Instituto Geográfico Nacional'
 });
 export const baseLayers = {
-    "Open Street Map": osm,
-    "Argenmap": argenmap
+    "Argenmap": argenmap,
+    "Open Street Map": osm
 }
