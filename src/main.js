@@ -1,7 +1,11 @@
+import { compass,CompassControl } from "./controls.js";
 import { map } from "./map.js";
 import {descargarGroupLayer,rend_panel_capas, asignar_eventos_panel_capas} from "./ui.js"
 import {layergroups, baseLayers} from "./layers.js"
 
+console.log(compass)
+let compass1 = new CompassControl()
+compass1.addTo(map)
 
 const overlays={}
 for (const layergroup of layergroups){
