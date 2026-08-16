@@ -1,5 +1,5 @@
 import { map } from "./map.js";
-import {asignarBotonSimbolo,descargarGroupLayer,rend_panel_capas} from "./ui.js"
+import {asignarBotonSimbolo,descargarGroupLayer,rend_panel_capas, asignar_eventos_panel_capas} from "./ui.js"
 import {layergroups, baseLayers} from "./layers.js"
 
 let estadoDibujo = {
@@ -17,6 +17,7 @@ for (const layergroup of layergroups){
 }
 
 rend_panel_capas(layergroups)
+asignar_eventos_panel_capas(layergroups)
 let controlLayerState=[]
 
 
