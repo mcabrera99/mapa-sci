@@ -38,6 +38,10 @@ body,
 
 }
 
+#reloj{
+    height: 40px;
+    border: 1px solid black
+}
 .simbolo {
     margin: 5px;
     height: 30px;
