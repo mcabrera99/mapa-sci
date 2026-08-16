@@ -1,4 +1,4 @@
-export  let editionState = {
+const editionState = {
     "on_edition": false,
     "target_layergroup_id": null,
     "type_edition":"first draw",
@@ -30,7 +30,7 @@ export function dibujarPunto(map, layergroup) {
 
 function crearIcon(layergroup_id) {
     let iconSize = [30, 30];
-    if (layergroup_id == "sci_pc") {   // sci_pc.png tiene una forma particular.
+    if (layergroup_id == "sci_pc") {                // sci_pc.png tiene una forma particular.
         iconSize = [45, 30]
     };
     let icon = L.icon({

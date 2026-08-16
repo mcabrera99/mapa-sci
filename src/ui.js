@@ -1,5 +1,5 @@
 import { layergroups} from "./layers.js"
-import { editionState, dibujarPunto} from "./draw.js"
+import {  dibujarPunto} from "./draw.js"
 // RENDERIZADO
 function rend_panel_capas(layergroups) {
     let html = ""
