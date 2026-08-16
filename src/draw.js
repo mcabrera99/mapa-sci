@@ -22,13 +22,44 @@ export function dibujarPunto(map, layergroup) {
             icon: icon,
             draggable: true
         }).addTo(layergroup.layergroup)
+        asignar_evento_seleccion_layer(punto)
         layergroup.layergroup.addTo(map)
         map.off("mousemove")
         map.off("click")
     })
 }
 
+export function eliminarPunto(layergroup,layer){
+    if (layergroup.hasLayer(layer)){
+        layergroup.removeLayer(layer)
+    }
+}
+
+function asignar_evento_seleccion_layer(layer){
+    const orig_icon = layer.getIcon()
+    console.log(orig_icon)
+    orig_icon.iconSize = [50,60]
+    layer.on("click",ev=>{
+        // layer
+        console.log(orig_icon)
+        console.log(layer)
+        layer.icon = orig_icon
+    })
+}
+
 function crearIcon(layergroup_id) {
+    let iconSize = [30, 30];
+    if (layergroup_id == "sci_pc") {                // sci_pc.png tiene una forma particular.
+        iconSize = [45, 30]
+    };
+    let icon = L.icon({
+        iconUrl: `icons/${layergroup_id}.png`,
+        iconSize: iconSize
+    });
+    return icon
+}
+
+function crearIconSeleccionado(layergroup_id) {
     let iconSize = [30, 30];
     if (layergroup_id == "sci_pc") {                // sci_pc.png tiene una forma particular.
         iconSize = [45, 30]

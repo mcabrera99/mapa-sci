@@ -38,6 +38,8 @@ function asignar_eventos_panel_capas(layergroups, map) {
     }
 }
 
+
+
 function borrarGroupLayer(layergroup) {
     console.log("Borrando capa", layergroup)
     layergroup.layergroup.clearLayers();
