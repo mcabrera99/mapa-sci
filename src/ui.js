@@ -1,5 +1,5 @@
-import { layergroups} from "./layers.js"
-import {  dibujarPunto} from "./draw.js"
+import { layergroups } from "./layers.js"
+import { dibujarPunto } from "./draw.js"
 // RENDERIZADO
 function rend_panel_capas(layergroups) {
     let html = ""
@@ -38,7 +38,16 @@ function asignar_eventos_panel_capas(layergroups, map) {
     }
 }
 
-
+function asignar_eventos_botones_totales() {
+    const btn_trash_total = document.getElementById("btn_trash_total")
+    btn_trash_total.addEventListener("click",ev => {
+        borrarTodosGroupLayer()
+    })
+    const btn_descargar_total = document.getElementById("btn_descargar_total")
+    btn_descargar_total.addEventListener("click",ev => {
+        descargarTodosGroupLayer()
+    })
+}
 
 function borrarGroupLayer(layergroup) {
     console.log("Borrando capa", layergroup)
@@ -56,5 +65,20 @@ function descargarGroupLayer(layergroup) {
     console.log("Descargando...")
 }
 
+function borrarTodosGroupLayer() {
+    for (const layergroup of layergroups) {
+        layergroup.layergroup.clearLayers()
+    }
+}
 
-export { descargarGroupLayer, rend_panel_capas, asignar_eventos_panel_capas }
+function descargarTodosGroupLayer() {
+    console.log("Descargando todas las capas...")
+    for (const layergroup of layergroups){
+        if (layergroup.layergroup.getLayers().length >0){
+            console.log(`Descargando ${layergroup.symbol.desc}`)
+        }
+        
+    }
+}
+
+export { descargarGroupLayer, rend_panel_capas, asignar_eventos_panel_capas, asignar_eventos_botones_totales }

@@ -22,6 +22,11 @@ body,
     width: 30%;
     border: 1px solid black
 }
+#contenedor_paneles_simbolos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 .contenedor_simbolo {
     margin-left: 5%;
